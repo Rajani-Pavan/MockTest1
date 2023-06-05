@@ -45,8 +45,8 @@ public class FirstNonRepeatingCharacterInString {
 				}
 			}
 			
-		public static void main (String [] args) {
-			String s = "leetCode";
-			findFirstNonRepeatingCharacter(s);
+public static void main (String [] args) {
+		String s = "leetCode";
+		findFirstNonRepeatingCharacter(s);
 	}
 }
