@@ -1,1 +1,52 @@
+/*
+	First Unique Character in a String
 
+	Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+
+	Example 1:
+	Input: s = "leetcode"
+	Output: 0
+
+	Example 2:
+	Input: s = "loveleetcode"
+	Output: 2
+
+	Example 3:
+	Input: s = "aabb"
+	Output: -1
+
+	Constraints:
+	a. 1 <= s.length <= 10^5
+	b. s consists of only lowercase English letters.
+*/
+
+public class FirstNonRepeatingCharacterInString {
+	private static void findFirstNonRepeatingCharacter (String str) {
+	
+	//traverse the array from the beginning to end and store the character and its count or frequency in the 
+	//LinkedHasMap(because LinkedHasmap preserves the order of insertion)
+	
+ 		 Map<Character,Integer> frequencyMap = new LinkedHashMap<>();
+  			for (int i=0;i<str.length();i++) {
+  					if (frequencyMap.containsKey(str.charAt(i))) {
+      				frequencyMap.put(str.charAt(i), frequencyMap.get(str.charAt(i))+1);
+					} else {
+           		frequencyMap.put(str.charAt(i),1);
+				 	}
+        }
+				//traverse the map and match the value to 1 as its not repeating, as LinkedHasMap preserves the order of insertion, 
+				//the moment we get the value as 1 then print the key and come out of the loop
+				
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+        	if (entry.getValue() == 1) {
+          	System.out.println(entry.getKey());
+          	break;
+					}
+				}
+			}
+			
+		public static void main (String [] args) {
+			String s = "leetCode";
+			findFirstNonRepeatingCharacter(s);
+	}
+}
