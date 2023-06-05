@@ -1,1 +1,28 @@
+public class MoveZerosToEnd {
+  private static int[] moveZerosToEndArray(int [] nums) {
+    int temp = 0;
+    //following two pointer approach
+    for (int i=0;i<nums.length;i++) {
+      for (int j=i+1;j<nums.length;j++) {
+      //checking array elements weather it is 0 then exchange it with next element which is greater than zero 
+        if (nums[i] == 0 && nums[i] < nums[j]) {
+            temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+          }
+      }
+  }
+  return nums;
+}
+
+public static void main(String [] args) {
+  int [] nums = {0,1,0,3,12}
+  nums = moveZerosToEndArray(nums);
+  System.out.println("Elements of given array after moving all zeros to end: ");
+   for (int i=0;i<nums.length;i++)  {
+      System.out.print(nums[i]+" ");
+     }
+   }
+}
+  
 
